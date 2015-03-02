@@ -1,9 +1,12 @@
-var totalSum = 0;
-var numberOfArguments = process.argv.length;
-if (numberOfArguments >= 3) {
-	for (var i=2; i<numberOfArguments; i++) {
-		totalSum += Number(process.argv[i]);
-	}	
-}
+var fs = require('fs');
 
-console.log(totalSum);
+var buffer = fs.readFileSync(process.argv[2]);
+
+var fileInStringFormat = buffer.toString();
+
+// note you can avoid the .toString() by passing 'utf8' as the
+// second argument to readFileSync, then you'll get a String!
+//
+// fs.readFileSync(process.argv[2], 'utf8').split('\n').length - 1
+
+console.log(fileInStringFormat.split('\n').length - 1);
