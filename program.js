@@ -1,21 +1,19 @@
 var fs = require('fs');
+var path = require('path');
 
-var numberOfLinesInFile;
+function printListOfFilesOfType(filePath, fileType) {
 
-function countNumberOfLines(filePath, callback) {
-
-	fs.readFile(filePath, 'utf8', function doneReading(err, fileContents) {
+	fs.readdir(filePath, function doneReading(err, listOfFiles) {
 		if (err) {
-			console.warn('You screwed it up, man!!!: ' + err);
+			console.error('You screwed it up, man!!!: ' + err);
 		} else {
-			numberOfLinesInFile = fileContents.toString().split('\n').length - 1;
+			listOfFiles
+				.filter(function(fileName) {
+					return path.extname(fileName) === "." + fileType;
+				})
+				.forEach(function(fileName){ console.log(fileName) });
 		}
-		callback();
 	})
 }
 
-function logMyNumber() {
-  console.log(numberOfLinesInFile);
-}	
-
-countNumberOfLines(process.argv[2], logMyNumber);
+printListOfFilesOfType(process.argv[2], process.argv[3]);

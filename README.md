@@ -24,3 +24,8 @@ Usually things that have to talk to hard drives or networks will be asynchronous
 
 Run with:
 $  node program.js sample.txt
+
+#FILTERED LS
+Create a program that prints a list of files in a given directory, filtered by the extension of the files. You will be provided a directory name as the first argument to your program (e.g. '/path/to/dir/') and a file extension to filter by as the second argument.
+
+file:///usr/local/lib/node_modules/learnyounode/node_apidoc/path.html
