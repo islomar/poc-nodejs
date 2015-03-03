@@ -23,4 +23,4 @@ https://github.com/maxogden/art-of-node#callbacks
 Usually things that have to talk to hard drives or networks will be asynchronous. If they just have to access things in memory or do some work on the CPU they will be synchronous.
 
 Run with:
-$  node program.js /sample.txt
+$  node program.js sample.txt
