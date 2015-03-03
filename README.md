@@ -1,6 +1,8 @@
-##Hello world
+##General info
+Run programs with
 $ node program.js
 
+##Hello world
 $ learnyounode verify program.js
 $ learnyounode run program.js
 
@@ -17,3 +19,8 @@ file:///usr/local/lib/node_modules/learnyounode/node_apidoc/buffer.html
 
 ##MY FIRST ASYNC I/O!
 https://github.com/maxogden/art-of-node#callbacks
+
+Usually things that have to talk to hard drives or networks will be asynchronous. If they just have to access things in memory or do some work on the CPU they will be synchronous.
+
+Run with:
+$  node program.js /sample.txt
