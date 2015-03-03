@@ -1,12 +1,24 @@
 var fs = require('fs');
 
-var buffer = fs.readFileSync(process.argv[2]);
+var numberOfLinesInFile;
 
-var fileInStringFormat = buffer.toString();
+function countNumberOfLines(filePath) {
 
-// note you can avoid the .toString() by passing 'utf8' as the
-// second argument to readFileSync, then you'll get a String!
-//
-// fs.readFileSync(process.argv[2], 'utf8').split('\n').length - 1
+	console.log(filePath);
 
-console.log(fileInStringFormat.split('\n').length - 1);
+	fs.readFile(filePath, 'utf8', function doneReading(err, fileContents) {
+		if (err) {
+			console.warn('You screwed it up, man!!!');
+		} else {
+			console.log(fileContents.toString());
+			numberOfLinesInFile = fileContents.toString().split('\n').length - 1;
+			console.log(numberOfLinesInFile);
+		}
+	})
+
+}
+
+console.log(process.argv[2]);
+//countNumberOfLines(process.argv[2]);
+
+console.log(numberOfLinesInFile);
