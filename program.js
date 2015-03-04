@@ -1,19 +1,12 @@
-var fs = require('fs');
-var path = require('path');
+var mymodule = require('./mymodule');
 
-function printListOfFilesOfType(filePath, fileType) {
+mymodule(process.argv[2], process.argv[3], function(err, list){
 
-	fs.readdir(filePath, function doneReading(err, listOfFiles) {
-		if (err) {
-			console.error('You screwed it up, man!!!: ' + err);
-		} else {
-			listOfFiles
-				.filter(function(fileName) {
-					return path.extname(fileName) === "." + fileType;
-				})
-				.forEach(function(fileName){ console.log(fileName) });
-		}
-	})
-}
+	  if (err) {
+	   console.error(err);
+	  }
+	  else list.forEach(function (file) {
+	   console.log(file);
+	  })
 
-printListOfFilesOfType(process.argv[2], process.argv[3]);
+});
