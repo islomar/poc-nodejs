@@ -54,3 +54,5 @@ These four things are the contract that your module must follow.
 
 The benefit of having a contract is that your module can be used by anyone who expects this contract. So your module could be used by anyone else who does learnyounode, or the verifier, and just work.
 
+#HTTP CLIENT
+Write a program that performs an HTTP GET request to a URL provided to you as the first command-line argument. Write the String contents of each "data" event from the response to a new line on the console (stdout).
